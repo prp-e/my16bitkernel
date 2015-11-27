@@ -37,6 +37,12 @@ This option, will create a directory called `cdiso` and puts `my16bitkernel.img`
 in the directory, then it'll make ISO image.
 
 ```
+	make qemu
+```
+
+This option, will boot kernel using QEMU.
+
+```
 	make clean
 ```
 
