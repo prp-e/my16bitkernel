@@ -41,6 +41,8 @@ mainloop:
  mov di, cmd_help
  call strcmp
  jc .help
+ 
+
 
 
  mov si, badcommand
@@ -51,23 +53,23 @@ mainloop:
   int 0x19
   jmp mainloop
  
-
+ .help:
+ mov si, msg_help
+ call print_string
+ jmp mainloop
 
  .about:
  mov si, msg_about
  call print_string
  jmp mainloop
 
- .help:
- mov si, msg_help
- call print_string
- jmp mainloop
- 
 
+ 
+ 
 welcome db  'Welcome to my OS', 0x0d, 0x0a, 0
 about db  'Written in 16-bit real mode', 0x0d, 0x0a, 0
 buffer times 64 db 0
-prompt db '>> ', 0
+prompt db ':~$ ', 0
 newline db ' ', 0x0d, 0x0a, 0
 badcommand db 'Bad command entered', 0x0d, 0x0a, 0
 cmd_reboot db 'reboot',0
@@ -75,6 +77,7 @@ cmd_about db 'about', 0
 msg_about db 'This is a 16 bit operating system, works in real mode and written in assembly language', 0x0d, 0x0a, 0
 cmd_help db 'help', 0
 msg_help db 'Commands are : about, help and reboot', 0x0d, 0x0a, 0
+cmd_time db 'time', 0
 
 
 
@@ -171,3 +174,4 @@ strcmp:
 
 times 510-($-$$) db 0
 dw 0xaa55
+
