@@ -4,7 +4,7 @@ This is a project for fun, I made this little 16 bit operating system
 in my free time. I hope you enjoy it!
 
 <p align="center">
- ![Booting OS...](./my16bitos.png)
+ <img src="my16bitos.png" width="640" height="480" />
 </p>
 
 ##Dependencies
